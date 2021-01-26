@@ -1,5 +1,5 @@
-name: 'Cancel Workflow Action for failed jobs'
-description: 'This Action will cancel all the jobs if any of the jobs failed'
+name: 'Cancel the selected workflow actions for a faster feedback'
+description: 'This Action will cancel the selected workflows if any of the jobs failed'
 author: vishnudxb
 branding:
   icon: 'stop-circle'  
