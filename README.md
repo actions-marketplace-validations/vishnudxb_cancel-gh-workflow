@@ -34,13 +34,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Extract branch name
+      id: extract_branch
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+
     - run: exit 1
 
-    - uses: vishnudxb/cancel-gh-workflow@v1.1
+    - uses: vishnudxb/cancel-gh-workflow@v1.3
       if: failure()
       with:
         repo: octocat/hello-world
-        branch_name: ${GITHUB_REF##*/}
+        branch_name: ${{ steps.extract_branch.outputs.branch }}
         workflow_file_name: django-test.yml
         access_token: ${{ github.token }}
 
@@ -70,13 +74,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Extract branch name
+      id: extract_branch
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+
     - run: exit 1
 
-    - uses: vishnudxb/cancel-gh-workflow@v1.1
+    - uses: vishnudxb/cancel-gh-workflow@v1.3
       if: failure()
       with:
         repo: octocat/hello-world
-        branch_name: ${GITHUB_REF##*/}
+        branch_name: ${{ steps.extract_branch.outputs.branch }}
         workflow_file_name: node-test.yml
         access_token: ${{ github.token }}
 
