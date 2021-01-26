@@ -36,7 +36,7 @@ jobs:
 
     - run: exit 1
 
-    - uses: vishnudxb/cancel-gh-workflow@v1.0
+    - uses: vishnudxb/cancel-gh-workflow@v1.1
       if: failure()
       with:
         repo: octocat/hello-world
@@ -72,7 +72,7 @@ jobs:
 
     - run: exit 1
 
-    - uses: vishnudxb/cancel-gh-workflow@v1.0
+    - uses: vishnudxb/cancel-gh-workflow@v1.1
       if: failure()
       with:
         repo: octocat/hello-world
